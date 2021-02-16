@@ -7,6 +7,19 @@ let routeFunctions = {
     changemode: (mode, callback) => {
         if(pid != 0) {
             process.kill(pid)
+            var cleanup = exec(`sudo python3 cleanup.py`, (error, stdout, stderr) => {
+                if (error) {
+                console.error(`error: ${error.message}`);
+                return;
+                }
+            
+                if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                return;
+                }
+            
+                console.log(`stdout:\n${stdout}`);
+            })
         }
        console.log("mode: ", mode);
        

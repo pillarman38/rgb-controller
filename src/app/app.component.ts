@@ -14,7 +14,7 @@ export class AppComponent {
   rgbPoster(e) {
     console.log(e);
     
-    this.http.post("http://192.168.1.75:4012/api/rgb/modechanger", {mode: e}).subscribe((res) => {
+    this.http.post("http://192.168.1.74:4012/api/rgb/modechanger", {mode: e}).subscribe((res) => {
       console.log(res);
     })
   }
